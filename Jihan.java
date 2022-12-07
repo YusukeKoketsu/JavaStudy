@@ -8,10 +8,10 @@ class Jihan{
 			
 				if(Integer.parseInt(args[i]) == 1 || Integer.parseInt(args[i]) == 5){
 					System.out.println("Œx : " + args[i] + "‰~‹Ê‚Íg‚¦‚Ü‚¹‚ñ");
-				}else if(Integer.parseInt(args[i]) == 777){
-					System.out.println("Œx : " + args[i] + "‚Íd‰İ‚Æ‚µ‚Ä“KØ‚È’l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
-				}else{
+				}else if(Integer.parseInt(args[i]) == 10 || Integer.parseInt(args[i]) == 50 || Integer.parseInt(args[i]) == 100 || Integer.parseInt(args[i]) == 500){
 					entryAmount = entryAmount + Integer.parseInt(args[i]);
+				}else{
+					System.out.println("Œx : " + args[i] + "‚Íd‰İ‚Æ‚µ‚Ä“KØ‚È’l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
 				}
 		}
 		

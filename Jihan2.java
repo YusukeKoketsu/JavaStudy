@@ -1,27 +1,60 @@
 class Jihan2{
 
 	public static void main(String[] args){
+		
 	
 		int entryAmount = 0;   // “Š“ü‹àŠz
 		
+		int purchasePrice = 0; // w“ü‹àŠz
+		
 		int changeAmount = 0;  // ‚¨’Ş‚è‚Ì‹àŠz
 		
-		for(int i = 0; i < args.length; i++){
+		
+// ‚±‚ÌƒvƒƒOƒ‰ƒ€‚¾‚Æ¤•i‹àŠz‚ª10,50,100,500‚Ìê‡‚É‚¤‚Ü‚­‹@”\‚µ‚È‚¢B
+		
+/*		for(int i = 0; i < args.length; i++){
 			
 				if(Integer.parseInt(args[i]) == 1 || Integer.parseInt(args[i]) == 5){
 					System.out.println("Œx : " + args[i] + "‰~‹Ê‚Íg‚¦‚Ü‚¹‚ñ");
-				}else if(Integer.parseInt(args[i]) == 777){
-					System.out.println("Œx : " + args[i] + "‚Íd‰İ‚Æ‚µ‚Ä“KØ‚È’l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
-				}else{
+				}else if(Integer.parseInt(args[i]) == 10 || Integer.parseInt(args[i]) == 50 || Integer.parseInt(args[i]) == 100 || Integer.parseInt(args[i]) == 500){
 					entryAmount = entryAmount + Integer.parseInt(args[i]);
+				}else{
+					if((i + 1) == args.length){
+						purchasePrice = Integer.parseInt(args[i]);
+					}else{
+						System.out.println("Œx : " + args[i] + "‚Íd‰İ‚Æ‚µ‚Ä“KØ‚È’l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
+					}
 				}
 			
-			changeAmount = entryAmount - (Integer.parseInt(args[i]) * 2);
+			changeAmount = entryAmount - purchasePrice;
 			
 		}
 		
 		System.out.println(changeAmount + "‰~‚Ì‚¨’Ş‚è‚Å‚·B‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B");
-	
+*/	
+		
+		for(int i = 0; i < args.length - 1; i++){
+			
+			if(Integer.parseInt(args[i]) == 1 || Integer.parseInt(args[i]) == 5){
+					System.out.println("Œx : " + args[i] + "‰~‹Ê‚Íg‚¦‚Ü‚¹‚ñ");
+				}else if(Integer.parseInt(args[i]) == 10 || Integer.parseInt(args[i]) == 50 || Integer.parseInt(args[i]) == 100 || Integer.parseInt(args[i]) == 500){
+					entryAmount = entryAmount + Integer.parseInt(args[i]);
+				}else{
+					if((i + 1) == args.length){
+						purchasePrice = Integer.parseInt(args[i]);
+					}else{
+						System.out.println("Œx : " + args[i] + "‚Íd‰İ‚Æ‚µ‚Ä“KØ‚È’l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
+					}
+				}
+			
+			purchasePrice = Integer.parseInt(args[args.length - 1]);  // [—v‘f” - 1]‚ÅÅŒã‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†‚Ì—v‘f‚ğæ‚èo‚¹‚é
+			
+		}
+		
+		changeAmount = entryAmount - purchasePrice;
+		
+		System.out.println(changeAmount + "‰~‚Ì‚¨’Ş‚è‚Å‚·B‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B");
+		
 	}
 
 }
