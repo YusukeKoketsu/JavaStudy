@@ -37,7 +37,7 @@ class Ex1_15_2{
 		
 		
 
-		List<String> adultFemaleDogsList = new ArrayList<String>();   // 2ŸŒ³”z—ñ‚ÌéŒ¾ adultFemaleDogsList‚Ì”z—ñ‚ğStringŒ^‚Åì¬
+		List<String> adultFemaleDogsList = new ArrayList<String>();   // adultFemaleDogsList‚Ì”z—ñ‚ğStringŒ^‚Åì¬
 		int age = 0;        // Î
 		
 		
