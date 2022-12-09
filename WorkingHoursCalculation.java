@@ -1,6 +1,6 @@
 import java.sql.Time;
-import java.math.RoundingMode;  // 小数点以下の切り捨て、四捨五入する為のインポート
-import java.math.BigDecimal;    // 小数点以下の計算するを１０進数で行う為のインポート
+// import java.math.RoundingMode;  // 小数点以下の切り捨て、四捨五入する為のインポート
+// import java.math.BigDecimal;    // 小数点以下の計算するを１０進数で行う為のインポート
 
 /* １日の給付計算
 ＜仕様＞
