@@ -46,7 +46,7 @@ class WorkingHoursCalculation {
 			
 		}else if(workingHour > 8){
 			
-			excessTime = workingHour - (8 + REST_TIME_HOUR);           // 残業時間は、「労働時間 - 8時間 + 休憩時間」
+			excessTime = workingHour - (8 + REST_TIME_HOUR);           // 残業時間は、「労働時間 - (8時間 + 休憩時間)」
 			
 			dailySalary = (HOURLY_SALARY * 8) + (int)(((excessTime * HOURLY_SALARY) * OVERTIME_WORKING) + (workingMin * OVERTIME_WORKING));  // 1時間休憩の日給計算
 			
