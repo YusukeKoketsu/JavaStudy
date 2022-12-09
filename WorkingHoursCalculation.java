@@ -46,13 +46,13 @@ class WorkingHoursCalculation {
 			
 		}else if(workingHour > 8){
 			
-			excessTime = workingHour - 8;
+			excessTime = workingHour - (8 + REST_TIME_HOUR);           // c‹ÆŠÔ‚ÍAu˜J“­ŠÔ - 8ŠÔ + ‹xŒeŠÔv
 			
-			dailySalary = (HOURLY_SALARY * 7) + (int)(((excessTime * HOURLY_SALARY) * OVERTIME_WORKING) + (workingMin * OVERTIME_WORKING));
+			dailySalary = (HOURLY_SALARY * 8) + (int)(((excessTime * HOURLY_SALARY) * OVERTIME_WORKING) + (workingMin * OVERTIME_WORKING));  // 1ŠÔ‹xŒe‚Ì“ú‹‹ŒvZ
 			
 		}else{
 			
-			dailySalary = (HOURLY_SALARY * workingHour) + (MINUTES_SALARY * workingMin);
+			dailySalary = (HOURLY_SALARY * workingHour) + (MINUTES_SALARY * workingMin);             // ‹xŒe‚È‚µ‚Ì“ú‹‹ŒvZ
 			
 		}
 		
