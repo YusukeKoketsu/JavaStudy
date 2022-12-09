@@ -1,4 +1,6 @@
 import java.sql.Time;
+import java.math.RoundingMode;  // 小数点以下の切り捨て、四捨五入する為のインポート
+import java.math.BigDecimal;    // 小数点以下の計算するを１０進数で行う為のインポート
 
 /* １日の給付計算
 ＜仕様＞
@@ -16,7 +18,16 @@ class WorkingHoursCalculation {
 		final long ONE_HOUR_BY_MILLI_SEC = 1000 * 60 * 60; // 1時間のミリ秒換算   データ量が多い為、Long型
 		final long ONE_MIN_BY_MILLI_SEC  = 1000 * 60;      // 1分のミリ秒換算   データ量が多い為、Long型
 		final int  ONE_HOUR_BY_MIN       = 60;             // 1時間の分換算
-// -----------------------労働時間計算-------------------------------------------------------
+		final int  HOURLY_SALARY = 900;                    // 時給
+		final int  MINUTES_SALARY = HOURLY_SALARY / 60;    // 分給
+		final int  REST_TIME_MINUTES = 45;                 // 45分休憩
+		final int  REST_TIME_HOUR = 1;                     // 1時間休憩
+		final double  OVERTIME_WORKING = 1.25;             // 残業代倍率
+		int dailySalary = 0;                               // 日給
+		int excessTime  = 0;                               // 超過時間
+		
+		
+// ----------------------労働時間計算--------------------------------------------------------
 	
 		Time startTime = Time.valueOf(args[0]);            // 業務開始時間をコマンドライン引数から受け取る
 		Time finishTime = Time.valueOf(args[1]);           // 業務終了時間をコマンドライン引数から受け取る
@@ -28,7 +39,29 @@ class WorkingHoursCalculation {
 		
 		System.out.println("本日の労働時間は" + workingHour + "時間" + workingMin + "分です。");
 		
-//-----------------------------------------------------------------------------------------------
+//-----------------------日給計算--------------------------------------------------------------
+		if(workingHour > 6 && workingHour <= 8){
+			
+			dailySalary = (HOURLY_SALARY * workingHour) + (MINUTES_SALARY * (workingMin - REST_TIME_MINUTES));  // 45分休憩の日給計算
+			
+		}else if(workingHour > 8){
+			
+			excessTime = workingHour - 8;
+			
+			dailySalary = (HOURLY_SALARY * 7) + (int)(((excessTime * HOURLY_SALARY) * OVERTIME_WORKING) + (workingMin * OVERTIME_WORKING));
+			
+		}else{
+			
+			dailySalary = (HOURLY_SALARY * workingHour) + (MINUTES_SALARY * workingMin);
+			
+		}
+		
+		if(excessTime != 0){
+			System.out.println("残業時間は" + excessTime + "時間でした。");
+		}
+		
+		System.out.println("今日の日給は、" + dailySalary + "円です。お疲れさまでした。");
+		
 		
 	}
 
