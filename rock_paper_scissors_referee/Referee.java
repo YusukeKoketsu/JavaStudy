@@ -7,7 +7,6 @@ class Referee {
 //-------------------------------------------------------
 	
 	String refereeName;
-	String judge;
 	String resultDisplay = "";
 	
 	Referee(String name){							// 審判名
@@ -47,7 +46,15 @@ class Referee {
 			{
 					resultDisplay = refereeName + "「" + p2name + "さんの勝ち！！」";
 			}else{
-					resultDisplay = "不正行為が見つかりました";
+					if(p1Status.equals("無敵")){
+						 resultDisplay = p1name;
+					}else if (p2Status.equals("無敵")){
+						resultDisplay = p2name;
+					}else{
+						resultDisplay = p1name + "さんと" + p2name;
+					}
+				
+					resultDisplay = refereeName + "「" + resultDisplay + "さんの不正行為が見つかりました」";
 			}
 		
 		System.out.println(resultDisplay);
